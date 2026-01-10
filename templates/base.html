@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}Home{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <!-- 🔹 Header / Navbar (optional but modern) -->
+    {% include 'header.html' %}
+
+    <!-- 🔹 Main Content -->
+    <main class="container py-4">
+        
+        {% block content %}
+        <!-- child templates will come here -->
+            <h1>Hello wrold!</h1>
+        {% endblock %}
+
+    </main>
+
+
+    <!-- 🔹 Footer -->
+    {% block footer %}
+        {% include 'footer.html' %}
+    {% endblock %}
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

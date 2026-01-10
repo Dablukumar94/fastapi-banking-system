@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Transaction{% endblock %}
+
+{% block content %}
+<h4 class="mb-3">Transaction History</h4>
+
+{% if transactions %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Balance</th>
+            <th>Current Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in transactions %}
+        <tr>
+            <td>{{ t.created_at.strftime("%d-%b-%Y %H:%M") }}</td>
+
+            {% if t.transaction_type == "Deposit" %}
+                <td class="text-success">{{ t.transaction_type }}</td>
+            {% else %}
+                <td class="text-danger">{{ t.transaction_type }}</td>
+            {% endif %}
+
+            <td>{{ t.amount }}</td>
+
+            <td>₹ {{ t.current_balance }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    No transactions found.
+</div>
+{% endif %}
+
+<a href="/" class="btn btn-primary mt-3">Home</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Withdraw{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h4 class="text-center mb-4">Withdraw Amount</h4>
+
+                {% include "messages.html" %}
+
+                <form method="post" action="/withdraw">
+                    <div class="mb-3">
+                        <label class="form-label">Amount</label>
+                        <input type="text" name="amount" class="form-control" required>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <a href="/" class="btn btn-outline-secondary w-50">
+                            Home
+                        </a>
+
+                        <button type="submit" class="btn btn-primary w-50">
+                            Withdraw
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

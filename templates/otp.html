@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}OTP Verification{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h4 class="text-center mb-2">OTP Verification</h4>
+                <p class="text-center text-muted small mb-4">
+                    Enter the 6-digit OTP sent to your mobile/email
+                </p>
+
+                <form method="post" action="/verify-otp">
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <input type="text" name="otp1" maxlength="1" class="form-control text-center mx-1" required>
+                    </div>
+
+                    <button class="btn btn-primary w-100">
+                        Verify OTP
+                    </button>
+                </form>
+
+                <div class="text-center mt-3 small">
+                    Didn’t receive OTP?
+                    <a href="/resend-otp">Resend</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

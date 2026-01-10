@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h3 class="mb-4 text-center fw-bold">Account Dashboard</h3>
+
+    <div class="row g-4">
+
+        <!-- Deposit -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Deposit</h5>
+                    <p class="text-muted small">
+                        Add money to your account
+                    </p>
+                    <a href="/deposite" class="btn btn-success w-100">
+                        Deposit
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Withdraw -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Withdraw</h5>
+                    <p class="text-muted small">
+                        Take money from account
+                    </p>
+                    <a href="/withdraw" class="btn btn-danger w-100">
+                        Withdraw
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Balance -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Balance</h5>
+                    <p class="text-muted small">
+                        Check current balance
+                    </p>
+                    <a href="/balance" class="btn btn-primary w-100">
+                        View Balance
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transaction History -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Transaction History</h5>
+                    <p class="text-muted small">
+                        Transaction history
+                    </p>
+                    <a href="/history" class="btn btn-dark w-100">
+                        View History
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
