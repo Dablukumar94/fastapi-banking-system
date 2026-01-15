@@ -305,6 +305,7 @@ async def deposite(
         }
     )
 
+
     
 # -------------- WITHDRAW -------------
 @app.get("/withdraw", response_class=HTMLResponse)
@@ -422,6 +423,25 @@ async def transaction_history(request: Request, db: Session = Depends(get_db)):
             "transactions": user.transactions
         }
     )
+
+# -------------- PROFILE ---------------
+@app.get("/profile", response_class=HTMLResponse)
+async def profile(request: Request, db: Session = Depends(get_db)):
+    if "user" not in request.session:
+        return RedirectResponse("/login", status_code=303)
+
+    username = request.session["user"]
+
+    user = db.query(UserInfo).filter(UserInfo.username == username).first()
+
+    return templates.TemplateResponse(
+        "profile.html",
+        {
+            "request": request,
+            "user": user
+        }
+    )
+
 
 
 if __name__ == "__main__":

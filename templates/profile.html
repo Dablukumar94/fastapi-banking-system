@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}My Profile{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h4 class="mb-4 text-center">My Profile</h4>
+
+                <table class="table table-borderless">
+                    <tr>
+                        <th>First Name</th>
+                        <td>{{ user.firstname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Last Name</th>
+                        <td>{{ user.lastname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Username</th>
+                        <td>{{ user.username }}</td>
+                    </tr>
+                    <tr>
+                        <th>Joined On</th>
+                        <td>{{ user.created_at.strftime("%d %b %Y") }}</td>
+                    </tr>
+                </table>
+
+                <div class="d-flex gap-2">
+                    <a href="/" class="btn btn-secondary w-50">Home</a>
+                    <a href="/logout" class="btn btn-danger w-50">Logout</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
